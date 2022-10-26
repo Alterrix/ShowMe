@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: candle_holder1Gold
+  m_Shader: {fileID: 23, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: a74596988f97f7040a67dd4d6bf5d875, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 8900000, guid: 2974cd4e4bf55db43b0c2ea9fc460065, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c55f38e1be9b6a949a28132a616aeb1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Shininess: 0.10446688
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.6409685, b: 0.36143908, a: 1}
+    - _ReflectColor: {r: 0.8352941, g: 0.76862746, b: 0.41960785, a: 0.5019608}
+    - _SpecColor: {r: 0.98507464, g: 0.9583426, b: 0.50723994, a: 1}
+  m_BuildTextureStacks: []
