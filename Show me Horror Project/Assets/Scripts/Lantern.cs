@@ -13,7 +13,11 @@ public class Lantern : MonoBehaviour
     public bool lanternOn = true;
     public float currentTime;
     public float startingTime = 10f;
+    public float startBlinkingTime = 3f;
     public LayerMask groundMask;
+    
+    private Material lanternMat;
+    private static readonly int TimeLeft = Shader.PropertyToID("_Timeleft");
 
 
     private void Awake()
@@ -24,6 +28,7 @@ public class Lantern : MonoBehaviour
     private void Start()
     {
         currentTime = startingTime;
+        lanternMat = lantern.GetComponent<MeshRenderer>().material;
     }
 
     private void Update()
@@ -40,6 +45,8 @@ public class Lantern : MonoBehaviour
 
 
         currentTime -= Time.deltaTime;
+        lanternMat.SetFloat(TimeLeft,currentTime / startBlinkingTime);
+        lantern.gameObject.SetActive(lanternOn);
 
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -80,7 +87,6 @@ public class Lantern : MonoBehaviour
         Vector2 c = cam.WorldToScreenPoint(lantern.TransformPoint(vertices[2]));
 
         bool inTriangle = InTriangle(cam.WorldToScreenPoint(point), a, b, c);
-        Debug.Log(inTriangle);
         return inTriangle;
     }
 }

@@ -1,26 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LanternPower : MonoBehaviour
 {
     public Image LanternUI;
-    [SerializeField] float DrainTime = 10;
-    public Lantern lantern;
+    public LanternVariable lantern;
     public Shrine shrine;
 
     // Update is called once per frame
     void Update()
     {
-        if (lantern.lanternOn)
-        {
-            LanternUI.fillAmount -= 1.0f / DrainTime * Time.deltaTime;
-        }
-    }
-
-    public void RefillImage()
-    {
-        LanternUI.fillAmount = 1;
+        LanternUI.fillAmount = lantern.CurrentValue.currentTime / lantern.CurrentValue.startingTime;
     }
 }

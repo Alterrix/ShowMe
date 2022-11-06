@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
 
 public class Shrine : MonoBehaviour
 {
     public GameObject fire;
     public GameObject lanternObj;
-    public Lantern lantern;
+    public LanternVariable lantern;
     public LanternPower lanternPower;
     public bool lit = false;
 
@@ -20,7 +21,7 @@ public class Shrine : MonoBehaviour
     {
         if (other.tag == "Player" && Input.GetKey(KeyCode.O))
         {
-            if (lantern.lanternOn)
+            if (lantern.CurrentValue.lanternOn)
             {
                 fire.SetActive(true);
                 lit = true;
@@ -29,11 +30,10 @@ public class Shrine : MonoBehaviour
 
             if (lit)
             {
-                lantern.currentTime = 10f;
-                lantern.lanternOn = true;
+                lantern.CurrentValue.currentTime = 10f;
+                lantern.CurrentValue.lanternOn = true;
                 lanternObj.SetActive(true);
                 Debug.Log("Lantern on");
-                lanternPower.RefillImage();
             }
         }
     }
