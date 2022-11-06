@@ -339,7 +339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -964,6 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304711054}
   - component: {fileID: 304711053}
+  - component: {fileID: 304711055}
   m_Layer: 0
   m_Name: Direct Light'
   m_TagString: Untagged
@@ -1048,6 +1049,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 53.323, y: 72.343, z: 142.221}
+--- !u!114 &304711055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304711052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &336886909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,7 +1800,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1863,7 +1884,7 @@ Terrain:
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: ed8e7a686bf3d9b439d3c3126d9f6c71, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 1df54b1d496324a45a49a0a88e5db88b, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 1
   m_DeringLightProbesForTrees: 1
@@ -2461,7 +2482,7 @@ PrefabInstance:
     - target: {fileID: 5753314540931886764, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 5753314541457116226, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4044,7 +4065,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6275,7 +6296,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6662,7 +6683,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.000001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6670,19 +6691,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.85065085
+      value: 0.78820544
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5257311
+      value: 0.61541224
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000025823525
+      value: 0.00000001397956
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000015959813
+      value: -0.000000010914911
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6698,11 +6719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000024927274
+      value: -0.000000028079366
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000017661147
+      value: 0.000000019894424
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381624, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_Follow
@@ -6786,11 +6807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8609659280749906483, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000022339867
+      value: 0.000000015434647
       objectReference: {fileID: 0}
     - target: {fileID: 8609659280749906483, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000016619481
+      value: -0.000000011482427
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
@@ -8354,6 +8375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661066543}
   - component: {fileID: 1661066544}
+  - component: {fileID: 1661066545}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -8438,6 +8460,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1661066545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661066542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1663284880
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,7 +9129,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9232,7 +9274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9394,11 +9436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000024048338
+      value: 0.000000017645194
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000015347284
+      value: -0.0000000098368185
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714647641872, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_Name
