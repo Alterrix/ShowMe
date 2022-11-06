@@ -5,22 +5,15 @@ using UnityEngine;
 public class Shrine : MonoBehaviour
 {
     public GameObject fire;
-    public Lantern lantern;
     public GameObject lanternObj;
+    public Lantern lantern;
+    public LanternPower lanternPower;
     public bool lit = false;
-    public bool activateLanternImage = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (lantern.currentTime == 10f)
-        {
-            activateLanternImage = true;
-        }
-        else
-        {
-            activateLanternImage = false;
-        }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,13 +27,13 @@ public class Shrine : MonoBehaviour
                 Debug.Log("Shrine activated");
             }
 
-            if (!lantern.lanternOn && lit)
+            if (lit)
             {
                 lantern.currentTime = 10f;
                 lantern.lanternOn = true;
                 lanternObj.SetActive(true);
                 Debug.Log("Lantern on");
-                activateLanternImage = true;
+                lanternPower.RefillImage();
             }
         }
     }

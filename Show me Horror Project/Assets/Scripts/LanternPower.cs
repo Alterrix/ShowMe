@@ -17,11 +17,10 @@ public class LanternPower : MonoBehaviour
         {
             LanternUI.fillAmount -= 1.0f / DrainTime * Time.deltaTime;
         }
+    }
 
-        if (shrine.activateLanternImage)
-        {
-            LanternUI.fillAmount = 1;
-            Debug.Log("activate image");
-        }
+    public void RefillImage()
+    {
+        LanternUI.fillAmount = 1;
     }
 }
