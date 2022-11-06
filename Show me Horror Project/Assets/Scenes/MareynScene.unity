@@ -795,11 +795,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54346af2b94196342b107cf0f16aa5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanternReference: {fileID: 0}
+  lanternDistance: 0
   lantern: {fileID: 1329120477}
   lanternOn: 1
   currentTime: 0
-  enemy: {fileID: 874212408}
   startingTime: 10
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &222522021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304711054}
   - component: {fileID: 304711053}
+  - component: {fileID: 304711055}
   m_Layer: 0
   m_Name: Direct Light'
   m_TagString: Untagged
@@ -1192,6 +1197,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 53.323, y: 72.343, z: 142.221}
+--- !u!114 &304711055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304711052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &336886909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4621,7 +4646,6 @@ MonoBehaviour:
   lantern: {fileID: 193354991}
   lanternPower: {fileID: 1366656600}
   lit: 0
-  activateLanternImage: 0
 --- !u!135 &864832973
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4741,28 +4765,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90929a8f005e834ab071185835bbce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 874212409}
-  maxWaitTime: 4
-  maxShrineDeactivateTime: 2
-  timeToRotate: 2
-  speedWalk: 4
-  speedRun: 9
-  viewRadius: 0
-  viewAngle: 90
+  playerTransform: {fileID: 0}
+  lantern: {fileID: 0}
+  hp: 0
+  lanternMultiplier: 0
+  hitBox: {x: 0, y: 0, z: 0}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
+  viewRange: 10
+  viewAngle: 90
+  patrolSpeed: 0
+  waitTime: {x: 0, y: 0}
   waypoints:
   - {fileID: 1888532261}
   - {fileID: 1192385437}
   - {fileID: 1737333379}
-  lantern: {fileID: 193354991}
+  chaseSpeed: 0
+  chasingViewAngle: 270
 --- !u!195 &874212409
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6452,7 +6475,6 @@ MonoBehaviour:
   lantern: {fileID: 193354991}
   lanternPower: {fileID: 1366656600}
   lit: 0
-  activateLanternImage: 0
 --- !u!135 &1278981473
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6902,11 +6924,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000025083484
+      value: -0.00000001397956
       objectReference: {fileID: 0}
     - target: {fileID: 1156945380580677746, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000001958457
+      value: 0.000000010914911
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6922,11 +6944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000028180711
+      value: -0.000000028079345
       objectReference: {fileID: 0}
     - target: {fileID: 4029062141179732996, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000019966228
+      value: 0.000000019894411
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381624, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_Follow
@@ -7010,11 +7032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8609659280749906483, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015530878
+      value: -0.000000015434651
       objectReference: {fileID: 0}
     - target: {fileID: 8609659280749906483, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000115540155
+      value: 0.00000001148243
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
@@ -8697,6 +8719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661066543}
   - component: {fileID: 1661066544}
+  - component: {fileID: 1661066545}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -8781,6 +8804,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1661066545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661066542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1663284880
 GameObject:
   m_ObjectHideFlags: 0
@@ -9737,11 +9780,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000011131418
+      value: -0.0000001113008
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000008281089
+      value: 0.00000008280093
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714647641872, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_Name
@@ -10929,6 +10972,18 @@ PrefabInstance:
     - target: {fileID: 2838455766699859226, guid: cc2f66591ce87ae49939c8004af192b0, type: 3}
       propertyPath: thresholdStep
       value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838455766699859226, guid: cc2f66591ce87ae49939c8004af192b0, type: 3}
+      propertyPath: hasStepped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838455766699859226, guid: cc2f66591ce87ae49939c8004af192b0, type: 3}
+      propertyPath: hasStepped.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838455766699859226, guid: cc2f66591ce87ae49939c8004af192b0, type: 3}
+      propertyPath: hasStepped.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2838455766741500887, guid: cc2f66591ce87ae49939c8004af192b0, type: 3}
       propertyPath: thresholdStep
