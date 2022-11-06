@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class Shrine : MonoBehaviour
 {
     public GameObject fire;
-    public Lantern lantern;
-    public bool lit = false;
     public GameObject lanternObj;
+    public Lantern lantern;
+    public LanternPower lanternPower;
+    public bool lit = false;
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -27,12 +27,13 @@ public class Shrine : MonoBehaviour
                 Debug.Log("Shrine activated");
             }
 
-            if (!lantern.lanternOn && lit)
+            if (lit)
             {
                 lantern.currentTime = 10f;
                 lantern.lanternOn = true;
                 lanternObj.SetActive(true);
                 Debug.Log("Lantern on");
+                lanternPower.RefillImage();
             }
         }
     }
