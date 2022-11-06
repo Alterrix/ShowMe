@@ -19,5 +19,10 @@ namespace GentleCat.ScriptableObjects
         {
             return defaultValue;
         }
+        
+        public static implicit operator T(ObjectVariable<T> reference)
+        {
+            return reference.CurrentValue;
+        }
     }
 }

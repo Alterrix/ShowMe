@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private TransformVariable playerTransform;
     public CharacterController controller;
     public Transform cam;
 
@@ -14,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     private float turnSmoothVelocity;
 
     private float gravity;
+
+    private void Awake()
+    {
+        playerTransform.CurrentValue = transform;
+    }
 
     private void Update()
     {
@@ -25,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            //transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            Vector3 moveDir = new Vector3(horizontal, 0f, vertical);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
