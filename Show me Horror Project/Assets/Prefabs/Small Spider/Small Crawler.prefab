@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 5857804649788280891}
   - component: {fileID: 5857804649788280890}
   - component: {fileID: 5857804649788280893}
+  - component: {fileID: 3615747893086195617}
   m_Layer: 0
   m_Name: Small Crawler
   m_TagString: Untagged
@@ -407,25 +408,42 @@ MonoBehaviour:
   lantern: {fileID: 11400000, guid: e942b13792d87b54e97e68b1bdfedd61, type: 2}
   shrines: {fileID: 11400000, guid: 69328cd245b0eb2419e737a173861556, type: 2}
   monsters: {fileID: 11400000, guid: 3f8a6dd42c8620043b007f93dfd449fa, type: 2}
+  particles: {fileID: 5890661860537483933, guid: b5556a36824bc9f43a14efeb7f78e168, type: 3}
   maxHp: 2
   healthBar: {fileID: 2874799926953556151}
   lanternMultiplier: 0.2
   hitBox:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    m_Extent: {x: 0.4, y: 0.4, z: 0.4}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3615747893086195617}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   obstacleMask:
     serializedVersion: 2
     m_Bits: 384
   viewRange: 8
   viewAngle: 180
-  patrolSpeed: 15
+  patrolSpeed: 20
   waitTime: {x: 2, y: 4}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  chaseSpeed: 25
+  chaseSpeed: 30
   chasingViewAngle: 270
+  chaseRange: 18
 --- !u!195 &5857804649788280893
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -440,7 +458,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -448,6 +466,21 @@ NavMeshAgent:
   m_BaseOffset: 0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3615747893086195617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857804649788280892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d96842cfc4483ea0ec797f5182bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ebe0d94da8f22bf4299e5c7e73d1dba2, type: 3}
+  audioPlayer: {fileID: 508327948180842729, guid: ecb14d3bc5285024b9e500b4b7817d2e, type: 3}
+  pitchRange: {x: 0.8, y: 1.2}
 --- !u!1 &5857804650342213904
 GameObject:
   m_ObjectHideFlags: 0

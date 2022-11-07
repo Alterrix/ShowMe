@@ -2,53 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour
 {
     public LanternVariable lantern;
-    public AudioSource pickupSound;
-    public GameObject TimerText;
-    public GameObject RangeText;
-    // Start is called before the first frame update
 
-    public void Update()
-    {
-       
-    }
+    public UnityEvent onPickup;
+    
+    
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
-            switch (tag)
-            {
-                case "Timer":
-                    TimerUpgrade();
-                    break;
-                case "RangeUpgrade":
-                    RangeUpgrade();
-                    break;
-                default:
-                    break;
-            }
-            pickupSound.Play();
-            
-            Destroy(gameObject,1f);
+            onPickup.Invoke();
+
+            Destroy(gameObject);
         }
-        //lanternrange upgrade
     }
 
-    private void TimerUpgrade()
+    public void TimerUpgrade()
     {
-        TimerText.SetActive(true);
         lantern.CurrentValue.currentTime = 30f;
         lantern.CurrentValue.maxTime = 30f;
         Debug.Log("Picked up time upgrade");
     }
 
-    private void RangeUpgrade()
+    public void RangeUpgrade()
     {
         lantern.CurrentValue.pickedUpLanternLightUpgrade = true;
-        RangeText.SetActive(true);
     }
 }

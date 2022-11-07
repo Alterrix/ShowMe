@@ -4958,6 +4958,7 @@ GameObject:
   - component: {fileID: 5490982663072805460}
   - component: {fileID: 5490982663072805456}
   - component: {fileID: 5490982663072805457}
+  - component: {fileID: 6397661318096639710}
   m_Layer: 0
   m_Name: Big Crawler
   m_TagString: Untagged
@@ -5070,12 +5071,28 @@ MonoBehaviour:
   lantern: {fileID: 11400000, guid: e942b13792d87b54e97e68b1bdfedd61, type: 2}
   shrines: {fileID: 11400000, guid: 69328cd245b0eb2419e737a173861556, type: 2}
   monsters: {fileID: 11400000, guid: 3f8a6dd42c8620043b007f93dfd449fa, type: 2}
+  particles: {fileID: 3776686947254652408, guid: 23e94982f04b1914abac37305af78bd7, type: 3}
   maxHp: 5
   healthBar: {fileID: 1382263069}
   lanternMultiplier: 0.5
   hitBox:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 1, y: 1, z: 1}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6397661318096639710}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5089,6 +5106,7 @@ MonoBehaviour:
   - {fileID: 0}
   chaseSpeed: 15
   chasingViewAngle: 360
+  chaseRange: 20
 --- !u!195 &5490982663072805457
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5111,6 +5129,21 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6397661318096639710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5490982664166595233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d96842cfc4483ea0ec797f5182bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ebe0d94da8f22bf4299e5c7e73d1dba2, type: 3}
+  audioPlayer: {fileID: 508327948180842729, guid: ecb14d3bc5285024b9e500b4b7817d2e, type: 3}
+  pitchRange: {x: 0.5, y: 0.8}
 --- !u!1 &5490982664176314193
 GameObject:
   m_ObjectHideFlags: 0

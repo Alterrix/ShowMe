@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using GentleCat.ScriptableObjects.Properties;
 using GentleCat.ScriptableObjects.Sets;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -15,11 +17,13 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private LanternVariable lantern;
     [SerializeField] private ShrineSet shrines;
     [SerializeField] private GameObjectSet monsters;
+    [SerializeField] private GameObject particles;
 
     [Header("Stats")] [SerializeField] private float maxHp;
     [SerializeField] private Image healthBar;
     [SerializeField] private float lanternMultiplier;
     [SerializeField] private Bounds hitBox;
+    [SerializeField] private UnityEvent onDeath;
 
 
     [Space] [Header("Vision")] [SerializeField]
@@ -39,6 +43,7 @@ public class AIEnemy : MonoBehaviour
     private float chaseSpeed;
 
     [Range(0, 360)] [SerializeField] private float chasingViewAngle = 270;
+    [SerializeField] private float chaseRange;
 
     private enum EnemyState
     {
@@ -90,7 +95,7 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        LookForPlayer();
+        LookForPlayer(viewRange,viewAngle);
         int pointsInLantern = 0;
         for (int x = -1; x <= 1; x += 2)
         {
@@ -107,13 +112,15 @@ public class AIEnemy : MonoBehaviour
             hp -= Time.deltaTime;
             if (hp <= 0)
             {
+                onDeath.Invoke();
                 Destroy(gameObject);
+                Destroy(Instantiate(particles, transform.position, quaternion.identity), 1f);
                 return;
             }
         }
         else if (hp < maxHp)
         {
-            hp += Time.deltaTime;
+            hp += Time.deltaTime * 0.3f;
         }
 
         healthBar.fillAmount = hp / maxHp;
@@ -138,6 +145,7 @@ public class AIEnemy : MonoBehaviour
 
     private void Chasing()
     {
+        LookForPlayer(chaseRange,chasingViewAngle);
         Move(chaseSpeed);
         navMeshAgent.SetDestination(lastPlayerPosition);
 
@@ -185,18 +193,22 @@ public class AIEnemy : MonoBehaviour
     private void Move(float speed)
     {
         if (lantern.CurrentValue.IsInside(transform.position))
+        {
+            LookForPlayer(chaseRange,360);
             speed *= lanternMultiplier;
+        }
+
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speed;
     }
 
-    private void LookForPlayer()
+    private void LookForPlayer(float range,float angle)
     {
         Vector3 dirToPlayer = (playerTransform.CurrentValue.position - transform.position).normalized;
-        if (!(Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)) return;
+        if (!(Vector3.Angle(transform.forward, dirToPlayer) < angle / 2)) return;
 
         float dstToPlayer = Vector3.Distance(transform.position, playerTransform.CurrentValue.position);
-        if (!(dstToPlayer <= (state == EnemyState.CHASING ? chasingViewAngle : viewRange))) return;
+        if (!(dstToPlayer <=  range)) return;
 
         if (Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask)) return;
 

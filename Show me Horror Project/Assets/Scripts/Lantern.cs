@@ -56,7 +56,7 @@ public class Lantern : MonoBehaviour
         }
         if (pickedUpLanternLightUpgrade)
         {
-            light.localScale = new Vector3(6f, 1f, 10f);
+            light.localScale = new Vector3(8f, 1f, 10f);
         }
     }
 
