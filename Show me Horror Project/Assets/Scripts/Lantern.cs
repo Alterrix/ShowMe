@@ -11,11 +11,12 @@ public class Lantern : MonoBehaviour
     public LanternVariable lanternReference;
     public Transform light;
     public Transform playerModel;
+    public bool pickedUpLanternLightUpgrade = false;
     public float currentTime;
     public float maxTime = 10f;
     public float startBlinkingTime = 3f;
     public LayerMask groundMask;
-    
+
     private Material lanternMat;
     private static readonly int TimeLeft = Shader.PropertyToID("_Timeleft");
 
@@ -52,6 +53,10 @@ public class Lantern : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             currentTime = maxTime;
+        }
+        if (pickedUpLanternLightUpgrade)
+        {
+            light.localScale = new Vector3(8f, 1f, 12f);
         }
     }
 
