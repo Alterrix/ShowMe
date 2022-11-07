@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GentleCat.ScriptableObjects.Properties;
+using GentleCat.ScriptableObjects.Sets;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -11,6 +12,7 @@ public class AIEnemy : MonoBehaviour
 {
     [SerializeField] private TransformVariable playerTransform;
     [SerializeField] private LanternVariable lantern;
+    [SerializeField] private ShrineSet shrines;
     
     [Header("Stats")] 
     [SerializeField] private float hp;
@@ -18,8 +20,7 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private Vector3 hitBox;
     
     
-    [Space] [Header("Vision")] 
-    [SerializeField] private LayerMask playerMask;
+    [Space] [Header("Vision")]
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float viewRange = 10;
     [Range(0,360)][SerializeField] private float viewAngle = 90;
@@ -33,11 +34,6 @@ public class AIEnemy : MonoBehaviour
     [Space] [Header("Chasing")] 
     [SerializeField] private float chaseSpeed;
     [Range(0,360)][SerializeField] private float chasingViewAngle = 270;
-    
-    
-
-
-
     private enum EnemyState
     {
         WAITING,
@@ -47,8 +43,6 @@ public class AIEnemy : MonoBehaviour
 
     private EnemyState state;
     private NavMeshAgent navMeshAgent;
-    private Rigidbody rb;
-    private Collider shrine;
 
     private Vector3 lastPlayerPosition;
     private float waitTimer;
@@ -59,7 +53,6 @@ public class AIEnemy : MonoBehaviour
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
 
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = patrolSpeed;
@@ -67,10 +60,20 @@ public class AIEnemy : MonoBehaviour
             .position); //  Set the destination to the first waypoint
     }
 
+    private bool IsInShrine(Vector3 point)
+    {
+        foreach (Shrine shrine in shrines.Items)
+        {
+            if (shrine.IsInside(point))
+                return true;
+        }
+
+        return false;
+    }
+    
     private void Update()
     {
         LookForPlayer();
-
 
         switch (state)
         {
@@ -85,23 +88,6 @@ public class AIEnemy : MonoBehaviour
             case EnemyState.CHASING:
                 Chasing();
                 break;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Shrine") && other.GetComponent<Shrine>().lit)
-        {
-            state = EnemyState.PATROLLING;
-            shrine = other;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Shrine"))
-        {
-            shrine = null;
         }
     }
 
@@ -166,12 +152,17 @@ public class AIEnemy : MonoBehaviour
 
         float dstToPlayer = Vector3.Distance(transform.position, playerTransform.CurrentValue.position);
         if (!(dstToPlayer <= (state == EnemyState.CHASING ?  chasingViewAngle : viewRange))) return;
-        
-        if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask))
+
+        if (Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask)) return;
+
+        if (IsInShrine(playerTransform.CurrentValue.position))
         {
-            lastPlayerPosition = playerTransform.CurrentValue.position;
-            state = EnemyState.CHASING;
+            //state = EnemyState.PATROLLING;
+            //return;
         }
+        
+        lastPlayerPosition = playerTransform.CurrentValue.position;
+        state = EnemyState.CHASING;
     }
 
 

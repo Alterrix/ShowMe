@@ -157,6 +157,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1307258350217432220}
   - component: {fileID: 1307258350217432227}
+  - component: {fileID: 825427761775985623}
+  - component: {fileID: 6936386809232472116}
   m_Layer: 0
   m_Name: (Prb)Leg_1
   m_TagString: Untagged
@@ -224,8 +226,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  thresholdStep: 0.2
-  footBodyDistance: 0.8
+  thresholdStep: 0.05
+  footBodyDistance: 0.5
   stepAnimation:
     serializedVersion: 2
     m_Curve:
@@ -260,7 +262,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   stepAnimationSpeed: 9
-  stepHeight: 0.25
+  stepHeight: 0.1
+  rayHeight: 2
   legGroup: 0
   hasStepped:
     m_PersistentCalls:
@@ -277,7 +280,135 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6936386809232472116}
+        m_TargetAssemblyTypeName: RandomizePlay, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   showDebug: 1
+--- !u!82 &825427761775985623
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307258350217432221}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c7ac2841d5b06224c9dc902b6ea562e5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 50
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6936386809232472116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307258350217432221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984aba444d2a8194e9d21f10c32f48ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: c7ac2841d5b06224c9dc902b6ea562e5, type: 3}
+  - {fileID: 8300000, guid: 7f41d73f876cf4e43aacc906147ea0d3, type: 3}
+  - {fileID: 8300000, guid: 87903f1382f60fb49906690c1b1a13f9, type: 3}
+  - {fileID: 8300000, guid: c3f7d48344b629f4c9d38fee28dfec29, type: 3}
+  - {fileID: 8300000, guid: 253b8b695cf1af64c8f27650182a6808, type: 3}
+  pitchRange: {x: 0.9, y: 1.1}
+  playChance: 0.1
 --- !u!1 &1307258350480204414
 GameObject:
   m_ObjectHideFlags: 0

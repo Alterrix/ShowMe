@@ -3,22 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Lantern : MonoBehaviour
 {
     // Start is called before the first frame update
     public LanternVariable lanternReference;
-    public float lanternDistance;
-    public Transform lantern;
-    public bool lanternOn = true;
+    public Transform light;
+    public Transform playerModel;
+    public bool pickedUpLanternLightUpgrade = false;
     public float currentTime;
-    public float startingTime = 10f;
+    public float maxTime = 10f;
     public float startBlinkingTime = 3f;
     public LayerMask groundMask;
-    
+
     private Material lanternMat;
     private static readonly int TimeLeft = Shader.PropertyToID("_Timeleft");
 
+    public bool LanternOn => currentTime > 0;
 
     private void Awake()
     {
@@ -27,8 +29,8 @@ public class Lantern : MonoBehaviour
 
     private void Start()
     {
-        currentTime = startingTime;
-        lanternMat = lantern.GetComponent<MeshRenderer>().material;
+        currentTime = maxTime;
+        lanternMat = light.GetComponent<MeshRenderer>().material;
     }
 
     private void Update()
@@ -36,30 +38,25 @@ public class Lantern : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo, float.MaxValue,
             groundMask))
         {
-            Vector3 dir = hitInfo.point - transform.parent.position;
+            Vector3 dir = hitInfo.point - playerModel.position;
             dir.y = 0;
             dir.Normalize();
-            transform.localPosition = dir * lanternDistance;
-            transform.forward = dir;
+            //transform.localPosition = dir * lanternDistance;
+            playerModel.forward = dir;
         }
 
 
         currentTime -= Time.deltaTime;
         lanternMat.SetFloat(TimeLeft,currentTime / startBlinkingTime);
-        lantern.gameObject.SetActive(lanternOn);
+        light.gameObject.SetActive(currentTime > 0);
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Debug.Log("pressed");
-            //lantern.SetActive(!lanternOn);
-            lanternOn = !lanternOn;
-            currentTime = startingTime;
+            currentTime = maxTime;
         }
-
-        if (currentTime <= 0)
+        if (pickedUpLanternLightUpgrade)
         {
-            //lantern.SetActive(false);
-            lanternOn = false;
+            light.localScale = new Vector3(10f, 1f, 10f);
         }
     }
 
@@ -76,15 +73,15 @@ public class Lantern : MonoBehaviour
 
     public bool IsInside(Vector3 point)
     {
-        if (!lanternOn)
+        if (!LanternOn)
             return false;
         Camera cam = Camera.main;
-        Mesh triangle = lantern.GetComponent<MeshFilter>().mesh;
+        Mesh triangle = light.GetComponent<MeshFilter>().mesh;
         List<Vector3> vertices = new List<Vector3>();
         triangle.GetVertices(vertices);
-        Vector2 a = cam.WorldToScreenPoint(lantern.TransformPoint(vertices[0]));
-        Vector2 b = cam.WorldToScreenPoint(lantern.TransformPoint(vertices[1]));
-        Vector2 c = cam.WorldToScreenPoint(lantern.TransformPoint(vertices[2]));
+        Vector2 a = cam.WorldToScreenPoint(light.TransformPoint(vertices[0]));
+        Vector2 b = cam.WorldToScreenPoint(light.TransformPoint(vertices[1]));
+        Vector2 c = cam.WorldToScreenPoint(light.TransformPoint(vertices[2]));
 
         bool inTriangle = InTriangle(cam.WorldToScreenPoint(point), a, b, c);
         return inTriangle;

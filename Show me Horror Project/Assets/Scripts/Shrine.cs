@@ -1,40 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GentleCat.ScriptableObjects.Properties;
+using GentleCat.ScriptableObjects.Sets;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Shrine : MonoBehaviour
 {
+    public TransformVariable playerTransform;
     public GameObject fire;
-    public GameObject lanternObj;
     public LanternVariable lantern;
-    public LanternPower lanternPower;
+    public float range = 7.5f;
+    public float useRange = 2f;
     public bool lit = false;
+    public ShrineSet shrines;
+    private NavMeshObstacle obstacle;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        
+        obstacle = GetComponent<NavMeshObstacle>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnDisable()
     {
-        if (other.tag == "Player" && Input.GetKey(KeyCode.O))
+        if (shrines.Items.Contains(this))
+            shrines.Remove(this);
+    }
+
+    private void Update()
+    {
+        if (lit && obstacle.radius < range)
         {
-            if (lantern.CurrentValue.lanternOn)
+            obstacle.radius += Time.deltaTime*4;
+        }
+        if (Input.GetKeyDown(KeyCode.E) &&
+            Vector3.Distance(playerTransform.CurrentValue.position, transform.position) < useRange)
+        {
+            if (lantern.CurrentValue.LanternOn)
             {
                 fire.SetActive(true);
                 lit = true;
-                Debug.Log("Shrine activated");
+                shrines.Add(this);
             }
 
             if (lit)
             {
-                lantern.CurrentValue.currentTime = 10f;
-                lantern.CurrentValue.lanternOn = true;
-                lanternObj.SetActive(true);
-                Debug.Log("Lantern on");
+                lantern.CurrentValue.currentTime = lantern.CurrentValue.maxTime;
             }
         }
+    }
+
+
+    public bool IsInside(Vector3 point)
+    {
+        return Vector3.Distance(point, transform.position) <= range;
     }
 }

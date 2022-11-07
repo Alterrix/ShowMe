@@ -30,6 +30,8 @@ namespace CreatureIK
         [Tooltip("Step height")]
         public float stepHeight = 1.2f;
 
+        public float rayHeight = 2f;
+
         [Header("Leg in body")]
         [Tooltip("Legs with the same leg group inside a body can move at the same time")]
         public int legGroup = 0;
@@ -139,7 +141,7 @@ namespace CreatureIK
         {
             //check ground
             RaycastHit hit;
-            stepOffset = jointsPos[0] + target.right * footBodyDistance;
+            stepOffset = jointsPos[0] + target.right * footBodyDistance + target.up * rayHeight;
             if (Physics.Raycast(stepOffset, groundDirection, out hit, Mathf.Infinity, groundLayer)) raycastHitPoint = hit.point;
 
             //set pos if just reached ground again
