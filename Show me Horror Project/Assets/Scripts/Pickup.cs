@@ -41,13 +41,13 @@ public class Pickup : MonoBehaviour
     {
         TimerText.SetActive(true);
         lantern.currentTime = 30f;
-        lantern.startingTime = 30f;
+        lantern.maxTime = 30f;
         Debug.Log("Picked up time upgrade");
     }
 
     private void RangeUpgrade()
     {
-        lantern.pickedupLanternLightUpgrade = true;
+        lantern.pickedUpLanternLightUpgrade = true;
         RangeText.SetActive(true);
     }
 }

@@ -3009,7 +3009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5490982663613195149}
   m_LocalRotation: {x: 0.043619387, y: 6.044948e-16, z: -9.714481e-16, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 0.55, z: -2.1}
+  m_LocalPosition: {x: 0, y: 0.36, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3913,7 +3913,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5490982664166595233}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 134.53, y: 2.27, z: 121.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4004,7 +4004,7 @@ SphereCollider:
   m_GameObject: {fileID: 5490982664166595233}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -4021,14 +4021,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 11400000, guid: 3c14251d0fd34c4459708269e127391b, type: 2}
-  lantern: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  lantern: {fileID: 11400000, guid: e942b13792d87b54e97e68b1bdfedd61, type: 2}
+  shrines: {fileID: 11400000, guid: 69328cd245b0eb2419e737a173861556, type: 2}
+  hp: 0
+  lanternMultiplier: 0.1
+  hitBox: {x: 0, y: 0, z: 0}
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
-  viewRange: 10
+    m_Bits: 256
+  viewRange: 8
   viewAngle: 90
   patrolSpeed: 5
   waitTime: {x: 3, y: 5}
