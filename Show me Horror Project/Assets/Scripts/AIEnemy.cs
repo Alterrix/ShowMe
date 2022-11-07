@@ -56,7 +56,7 @@ public class AIEnemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     private Vector3 lastPlayerPosition;
-    private float waitTimer;
+    private float waitTimer = 2f;
     private float hp;
 
 
