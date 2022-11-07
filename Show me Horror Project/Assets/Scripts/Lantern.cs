@@ -7,15 +7,19 @@ using UnityEngine;
 public class Lantern : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject lanternLight;
     public LanternVariable lanternReference;
     public float lanternDistance;
     public Transform lantern;
     public bool lanternOn = true;
+    public bool pickedupLanternLightUpgrade = false;
     public float currentTime;
     public float startingTime = 10f;
     public float startBlinkingTime = 3f;
     public LayerMask groundMask;
-    
+
+    public Pickup pickup;
+
     private Material lanternMat;
     private static readonly int TimeLeft = Shader.PropertyToID("_Timeleft");
 
@@ -60,6 +64,11 @@ public class Lantern : MonoBehaviour
         {
             //lantern.SetActive(false);
             lanternOn = false;
+        }
+
+        if (pickedupLanternLightUpgrade)
+        {
+            lanternLight.transform.localScale = new Vector3(2f, 1f, 2f);
         }
     }
 
