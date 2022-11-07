@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using GentleCat.ScriptableObjects.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour
 {
-    public Lantern lantern;
+    public LanternVariable lantern;
     public AudioSource pickupSound;
     public GameObject TimerText;
     public GameObject RangeText;
@@ -40,14 +41,14 @@ public class Pickup : MonoBehaviour
     private void TimerUpgrade()
     {
         TimerText.SetActive(true);
-        lantern.currentTime = 30f;
-        lantern.maxTime = 30f;
+        lantern.CurrentValue.currentTime = 30f;
+        lantern.CurrentValue.maxTime = 30f;
         Debug.Log("Picked up time upgrade");
     }
 
     private void RangeUpgrade()
     {
-        lantern.pickedUpLanternLightUpgrade = true;
+        lantern.CurrentValue.pickedUpLanternLightUpgrade = true;
         RangeText.SetActive(true);
     }
 }

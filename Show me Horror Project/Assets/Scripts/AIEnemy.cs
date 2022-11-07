@@ -157,8 +157,8 @@ public class AIEnemy : MonoBehaviour
 
         if (IsInShrine(playerTransform.CurrentValue.position))
         {
-            state = EnemyState.PATROLLING;
-            return;
+            //state = EnemyState.PATROLLING;
+            //return;
         }
         
         lastPlayerPosition = playerTransform.CurrentValue.position;

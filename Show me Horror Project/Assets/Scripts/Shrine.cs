@@ -33,7 +33,7 @@ public class Shrine : MonoBehaviour
     {
         if (lit && obstacle.radius < range)
         {
-            obstacle.radius += Time.deltaTime;
+            obstacle.radius += Time.deltaTime*4;
         }
         if (Input.GetKeyDown(KeyCode.E) &&
             Vector3.Distance(playerTransform.CurrentValue.position, transform.position) < useRange)
