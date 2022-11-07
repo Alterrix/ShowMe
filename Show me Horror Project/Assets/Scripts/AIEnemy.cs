@@ -6,6 +6,7 @@ using GentleCat.ScriptableObjects.Sets;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class AIEnemy : MonoBehaviour
@@ -13,27 +14,32 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private TransformVariable playerTransform;
     [SerializeField] private LanternVariable lantern;
     [SerializeField] private ShrineSet shrines;
-    
-    [Header("Stats")] 
-    [SerializeField] private float hp;
-    [SerializeField] private float lanternMultiplier;
-    [SerializeField] private Vector3 hitBox;
-    
-    
-    [Space] [Header("Vision")]
-    [SerializeField] private LayerMask obstacleMask;
-    [SerializeField] private float viewRange = 10;
-    [Range(0,360)][SerializeField] private float viewAngle = 90;
+    [SerializeField] private GameObjectSet monsters;
 
-    [Space] [Header("Patrolling")] 
-    [SerializeField] private float patrolSpeed;
+    [Header("Stats")] [SerializeField] private float maxHp;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private float lanternMultiplier;
+    [SerializeField] private Bounds hitBox;
+
+
+    [Space] [Header("Vision")] [SerializeField]
+    private LayerMask obstacleMask;
+
+    [SerializeField] private float viewRange = 10;
+    [Range(0, 360)] [SerializeField] private float viewAngle = 90;
+
+    [Space] [Header("Patrolling")] [SerializeField]
+    private float patrolSpeed;
+
     [SerializeField] private Vector2 waitTime;
     [SerializeField] private Transform[] waypoints;
     private int currentWaypointIndex;
 
-    [Space] [Header("Chasing")] 
-    [SerializeField] private float chaseSpeed;
-    [Range(0,360)][SerializeField] private float chasingViewAngle = 270;
+    [Space] [Header("Chasing")] [SerializeField]
+    private float chaseSpeed;
+
+    [Range(0, 360)] [SerializeField] private float chasingViewAngle = 270;
+
     private enum EnemyState
     {
         WAITING,
@@ -46,9 +52,19 @@ public class AIEnemy : MonoBehaviour
 
     private Vector3 lastPlayerPosition;
     private float waitTimer;
+    private float hp;
 
 
-    //  if the enemy has caught the player
+    private void OnEnable()
+    {
+        monsters.Add(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        monsters.Remove(gameObject);
+    }
+
 
     private void Start()
     {
@@ -58,6 +74,7 @@ public class AIEnemy : MonoBehaviour
         navMeshAgent.speed = patrolSpeed;
         navMeshAgent.SetDestination(waypoints[currentWaypointIndex]
             .position); //  Set the destination to the first waypoint
+        hp = maxHp;
     }
 
     private bool IsInShrine(Vector3 point)
@@ -70,10 +87,38 @@ public class AIEnemy : MonoBehaviour
 
         return false;
     }
-    
+
     private void Update()
     {
         LookForPlayer();
+        int pointsInLantern = 0;
+        for (int x = -1; x <= 1; x += 2)
+        {
+            for (int z = -1; z <= 1; z += 2)
+            {
+                if (lantern.CurrentValue.IsInside(transform.position + hitBox.center +
+                                                  Vector3.Scale(hitBox.extents, new Vector3(x, 0, z))))
+                    pointsInLantern++;
+            }
+        }
+
+        if (pointsInLantern == 4)
+        {
+            hp -= Time.deltaTime;
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+        else if (hp < maxHp)
+        {
+            hp += Time.deltaTime;
+        }
+
+        healthBar.fillAmount = hp / maxHp;
+        healthBar.transform.parent.gameObject.SetActive(hp < maxHp);
+
 
         switch (state)
         {
@@ -96,7 +141,7 @@ public class AIEnemy : MonoBehaviour
         Move(chaseSpeed);
         navMeshAgent.SetDestination(lastPlayerPosition);
 
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) 
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             if (Vector3.Distance(playerTransform.CurrentValue.position, lastPlayerPosition) > 0.5f)
             {
@@ -107,7 +152,7 @@ public class AIEnemy : MonoBehaviour
 
     private void Wait()
     {
-        waitTimer = Random.Range(waitTime.x,waitTime.y);
+        waitTimer = Random.Range(waitTime.x, waitTime.y);
         state = EnemyState.WAITING;
     }
 
@@ -115,7 +160,7 @@ public class AIEnemy : MonoBehaviour
     {
         navMeshAgent.SetDestination(waypoints[currentWaypointIndex]
             .position); //  Set the enemy destination to the next waypoint
-        
+
         Move(patrolSpeed);
 
         //  If the enemy arrives to the waypoint position then wait for a moment and go to the next
@@ -151,16 +196,16 @@ public class AIEnemy : MonoBehaviour
         if (!(Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)) return;
 
         float dstToPlayer = Vector3.Distance(transform.position, playerTransform.CurrentValue.position);
-        if (!(dstToPlayer <= (state == EnemyState.CHASING ?  chasingViewAngle : viewRange))) return;
+        if (!(dstToPlayer <= (state == EnemyState.CHASING ? chasingViewAngle : viewRange))) return;
 
         if (Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask)) return;
 
         if (IsInShrine(playerTransform.CurrentValue.position))
         {
-            //state = EnemyState.PATROLLING;
-            //return;
+            state = EnemyState.PATROLLING;
+            return;
         }
-        
+
         lastPlayerPosition = playerTransform.CurrentValue.position;
         state = EnemyState.CHASING;
     }
@@ -169,6 +214,6 @@ public class AIEnemy : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position,hitBox);
+        Gizmos.DrawWireCube(transform.position + hitBox.center, hitBox.size);
     }
 }

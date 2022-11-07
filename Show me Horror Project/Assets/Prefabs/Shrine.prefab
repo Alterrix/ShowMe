@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4455912297817267316}
   - component: {fileID: 7642753650314391245}
   - component: {fileID: 2769592636462902573}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 9038763607653127222}
   - component: {fileID: 4465013257992029484}
   - component: {fileID: 7887230980384774501}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 6085114133507747208}
   - component: {fileID: 2263558867678605342}
   - component: {fileID: 7381916932192981105}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 6360441036426924576}
   - component: {fileID: 4025468006833499775}
   - component: {fileID: 7536007456346127685}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Decorations_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
