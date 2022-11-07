@@ -13,6 +13,6 @@ public class LanternPower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LanternUI.fillAmount = lantern.CurrentValue.currentTime / lantern.CurrentValue.startingTime;
+        LanternUI.fillAmount = lantern.CurrentValue.currentTime / lantern.CurrentValue.maxTime;
     }
 }
