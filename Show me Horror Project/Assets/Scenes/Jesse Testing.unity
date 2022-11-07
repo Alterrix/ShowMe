@@ -2231,6 +2231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Crawler (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5857804649788280892, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5857804649788280894, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -2566,6 +2570,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5281171394512806848, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281171394512806848, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281171394512806848, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281171394512806848, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281171394512806848, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753314541457116226, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10624,6 +10648,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935647105331585883, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964554081466845673, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275518633283783322, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492403786963047268, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5534092140359179520, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
       propertyPath: m_Name
       value: Shrine2.0
