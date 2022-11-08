@@ -37,7 +37,7 @@ public class AIEnemy : MonoBehaviour
 
     [SerializeField] private Vector2 waitTime;
     [SerializeField] private Transform[] waypoints;
-    private int currentWaypointIndex;
+    public int currentWaypointIndex;
 
     [Space] [Header("Chasing")] [SerializeField]
     private float chaseSpeed;
@@ -95,12 +95,12 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
-        
-        LookForPlayer(viewRange,viewAngle);
-        if (IsInShrine(lastPlayerPosition))
+        LookForPlayer(viewRange, viewAngle);
+        if (IsInShrine(lastPlayerPosition) && state == EnemyState.CHASING)
         {
             state = EnemyState.PATROLLING;
         }
+
         int pointsInLantern = 0;
         for (int x = -1; x <= 1; x += 2)
         {
@@ -150,7 +150,7 @@ public class AIEnemy : MonoBehaviour
 
     private void Chasing()
     {
-        LookForPlayer(chaseRange,chasingViewAngle);
+        LookForPlayer(chaseRange, chasingViewAngle);
         Move(chaseSpeed);
         navMeshAgent.SetDestination(lastPlayerPosition);
 
@@ -176,11 +176,15 @@ public class AIEnemy : MonoBehaviour
 
         Move(patrolSpeed);
 
+        Debug.Log(navMeshAgent.remainingDistance);
         //  If the enemy arrives to the waypoint position then wait for a moment and go to the next
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if (!navMeshAgent.pathPending)
         {
-            Wait();
-            NextPoint();
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            {
+                Wait();
+                NextPoint();
+            }
         }
     }
 
@@ -199,7 +203,7 @@ public class AIEnemy : MonoBehaviour
     {
         if (lantern.CurrentValue.IsInside(transform.position))
         {
-            LookForPlayer(chaseRange,360);
+            LookForPlayer(chaseRange, 360);
             speed *= lanternMultiplier;
         }
 
@@ -207,13 +211,13 @@ public class AIEnemy : MonoBehaviour
         navMeshAgent.speed = speed;
     }
 
-    private void LookForPlayer(float range,float angle)
+    private void LookForPlayer(float range, float angle)
     {
         Vector3 dirToPlayer = (playerTransform.CurrentValue.position - transform.position).normalized;
         if (!(Vector3.Angle(transform.forward, dirToPlayer) < angle / 2)) return;
 
         float dstToPlayer = Vector3.Distance(transform.position, playerTransform.CurrentValue.position);
-        if (!(dstToPlayer <=  range)) return;
+        if (!(dstToPlayer <= range)) return;
 
         if (Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask)) return;
 
