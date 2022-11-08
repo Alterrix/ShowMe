@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3429746502739888855}
   - component: {fileID: 6357403612476264527}
   - component: {fileID: 7484080049997238457}
+  - component: {fileID: 964190603476611071}
   m_Layer: 0
   m_Name: pCylinder9
   m_TagString: Untagged
@@ -83,6 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &964190603476611071
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81785909548431599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbfbb9fe3cd14e44580337b28f3f2d6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5501724064498534935
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +253,7 @@ GameObject:
   - component: {fileID: 5418231320885650402}
   - component: {fileID: 4049104236646207492}
   - component: {fileID: 7153920556419480750}
+  - component: {fileID: 53805236495299520}
   m_Layer: 0
   m_Name: lamp2_2_pCylinder10
   m_TagString: Untagged
@@ -282,7 +304,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 37d63b5fa2424c14093e21122d60706c, type: 3}
+  - {fileID: 2100000, guid: 0dbbd9d9513d7e04ea96553c84042a98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,6 +326,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &53805236495299520
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513142139725441259}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbfbb9fe3cd14e44580337b28f3f2d6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9136295555316996107
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +357,7 @@ GameObject:
   - component: {fileID: 2025156952152574117}
   - component: {fileID: 15164713270806068}
   - component: {fileID: 4151196434088691231}
+  - component: {fileID: 5534175870816893897}
   m_Layer: 0
   m_Name: lamp2_2_pSphere4
   m_TagString: Untagged
@@ -388,3 +431,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &5534175870816893897
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136295555316996107}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbfbb9fe3cd14e44580337b28f3f2d6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
