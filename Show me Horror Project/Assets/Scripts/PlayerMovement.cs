@@ -1,25 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GentleCat.ScriptableObjects.Properties;
+using GentleCat.ScriptableObjects.Sets;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float maxHp;
+    public float hp;
+    public float regenRate;
+    public float hitDelay;
+    public GameObject deathScreen;
+    public Image healthBar;
+    public ShrineSet shrines;
     [SerializeField] private TransformVariable playerTransform;
     public CharacterController controller;
-    public Transform cam;
 
     public float speed = 6f;
-
-    public float turnSmoothTime = 0.1f;
-    private float turnSmoothVelocity;
 
     private float gravity;
 
     private void Awake()
     {
         playerTransform.CurrentValue = transform;
+        hp = maxHp;
     }
 
     private void Update()
@@ -27,16 +34,46 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
+        if (hitDelay >= 0)
+            hitDelay -= Time.deltaTime;
+        
+        healthBar.fillAmount = hp / maxHp;
+        healthBar.transform.parent.gameObject.SetActive(hp < maxHp);
+
+        if (hp <= 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            enabled = false;
+            deathScreen.SetActive(true);
+        }
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
 
         if (direction.magnitude >= 0.1f)
         {
-            //float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            //float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            //transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
             Vector3 moveDir = new Vector3(horizontal, 0f, vertical);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+
+        foreach (Shrine shrine in shrines.Items.Where(shrine => shrine.IsInside(transform.position)))
+        {
+            if (hp < maxHp)
+            {
+                hp += regenRate * Time.deltaTime;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("test");
+            if (hitDelay < 0)
+            {
+                hitDelay = 0.05f;
+                hp--;
+            }
         }
     }
 

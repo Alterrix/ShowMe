@@ -11,7 +11,7 @@ public class LookAt : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.forward = Vector3.forward - Vector3.up;
     }

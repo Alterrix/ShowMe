@@ -21,6 +21,8 @@ public class Shrine : MonoBehaviour
     private void Start()
     {
         obstacle = GetComponent<NavMeshObstacle>();
+        if(lit)
+            shrines.Add(this);
     }
 
     private void OnDisable()
@@ -38,7 +40,7 @@ public class Shrine : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) &&
             Vector3.Distance(playerTransform.CurrentValue.position, transform.position) < useRange)
         {
-            if (lantern.CurrentValue.LanternOn)
+            if (lantern.CurrentValue.LanternOn && !lit)
             {
                 fire.SetActive(true);
                 lit = true;

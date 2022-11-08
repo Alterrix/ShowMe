@@ -24,9 +24,8 @@ public class Pickup : MonoBehaviour
 
     public void TimerUpgrade()
     {
-        lantern.CurrentValue.currentTime = 30f;
-        lantern.CurrentValue.maxTime = 30f;
-        Debug.Log("Picked up time upgrade");
+        //lantern.CurrentValue.currentTime = 30f;
+        lantern.CurrentValue.maxTime = 20f;
     }
 
     public void RangeUpgrade()

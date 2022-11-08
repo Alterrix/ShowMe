@@ -29,7 +29,7 @@ public class Lantern : MonoBehaviour
 
     private void Start()
     {
-        currentTime = maxTime;
+        //currentTime = maxTime;
         lanternMat = light.GetComponent<MeshRenderer>().material;
     }
 

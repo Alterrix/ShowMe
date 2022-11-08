@@ -8,6 +8,7 @@ TagManager:
   - Shrine
   - Timer
   - RangeUpgrade
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Player
   - Ground
   - Shrine
-  - 
-  - 
+  - Enemy
+  - RenderOnTop
   - 
   - 
   - 

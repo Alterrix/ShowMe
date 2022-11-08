@@ -95,7 +95,12 @@ public class AIEnemy : MonoBehaviour
 
     private void Update()
     {
+        
         LookForPlayer(viewRange,viewAngle);
+        if (IsInShrine(lastPlayerPosition))
+        {
+            state = EnemyState.PATROLLING;
+        }
         int pointsInLantern = 0;
         for (int x = -1; x <= 1; x += 2)
         {
@@ -211,12 +216,6 @@ public class AIEnemy : MonoBehaviour
         if (!(dstToPlayer <=  range)) return;
 
         if (Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask)) return;
-
-        if (IsInShrine(playerTransform.CurrentValue.position))
-        {
-            state = EnemyState.PATROLLING;
-            return;
-        }
 
         lastPlayerPosition = playerTransform.CurrentValue.position;
         state = EnemyState.CHASING;
