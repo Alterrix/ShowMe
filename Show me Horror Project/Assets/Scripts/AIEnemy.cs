@@ -125,7 +125,7 @@ public class AIEnemy : MonoBehaviour
         }
         else if (hp < maxHp)
         {
-            hp += Time.deltaTime * 1.2f;
+            hp += Time.deltaTime * 0.3f;
         }
 
         healthBar.fillAmount = hp / maxHp;

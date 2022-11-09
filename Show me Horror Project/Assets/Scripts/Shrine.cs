@@ -16,6 +16,7 @@ public class Shrine : MonoBehaviour
     public bool lit = false;
     public ShrineSet shrines;
     private NavMeshObstacle obstacle;
+    public GameObject shrineMiniMap;
 
 
     private void Start()
@@ -45,6 +46,7 @@ public class Shrine : MonoBehaviour
                 fire.SetActive(true);
                 lit = true;
                 shrines.Add(this);
+                shrineMiniMap.SetActive(true);
             }
 
             if (lit)
