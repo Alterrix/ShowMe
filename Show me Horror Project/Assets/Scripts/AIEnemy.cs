@@ -125,7 +125,7 @@ public class AIEnemy : MonoBehaviour
         }
         else if (hp < maxHp)
         {
-            hp += Time.deltaTime * 0.3f;
+            hp += Time.deltaTime * 1.2f;
         }
 
         healthBar.fillAmount = hp / maxHp;
@@ -176,7 +176,7 @@ public class AIEnemy : MonoBehaviour
 
         Move(patrolSpeed);
 
-        Debug.Log(navMeshAgent.remainingDistance);
+        //Debug.Log(navMeshAgent.remainingDistance);
         //  If the enemy arrives to the waypoint position then wait for a moment and go to the next
         if (!navMeshAgent.pathPending)
         {

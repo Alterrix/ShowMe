@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public ShrineSet shrines;
     [SerializeField] private TransformVariable playerTransform;
     public CharacterController controller;
+    public GameObject chaseSound;
 
     public float speed = 6f;
 
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
             enabled = false;
             deathScreen.SetActive(true);
+            chaseSound.SetActive(false);
         }
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
