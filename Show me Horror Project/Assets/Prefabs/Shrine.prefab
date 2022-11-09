@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 5534092140359179546}
   - component: {fileID: 5534092140359179527}
   - component: {fileID: 5534092140359179545}
+  - component: {fileID: 35482848617133417}
   m_Layer: 7
   m_Name: Shrine
   m_TagString: Untagged
@@ -649,6 +650,8 @@ MonoBehaviour:
   useRange: 5
   lit: 0
   shrines: {fileID: 11400000, guid: 69328cd245b0eb2419e737a173861556, type: 2}
+  shrineMiniMap: {fileID: 0}
+  killing: 0
 --- !u!208 &5534092140359179545
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -665,6 +668,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!135 &35482848617133417
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534092140359179520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.92
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6390964542479222309
 GameObject:
   m_ObjectHideFlags: 0

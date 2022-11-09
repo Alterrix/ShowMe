@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float hp;
     public float regenRate;
     public float hitDelay;
+    public bool isInShrine;
     public GameObject deathScreen;
     public Image healthBar;
     public ShrineSet shrines;

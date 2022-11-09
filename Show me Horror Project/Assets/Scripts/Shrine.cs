@@ -17,6 +17,7 @@ public class Shrine : MonoBehaviour
     public ShrineSet shrines;
     private NavMeshObstacle obstacle;
     public GameObject shrineMiniMap;
+    
 
 
     private void Start()
@@ -34,6 +35,8 @@ public class Shrine : MonoBehaviour
 
     private void Update()
     {
+
+       // Debug.Log(killing);
         if (lit && obstacle.radius < range)
         {
             obstacle.radius += Time.deltaTime*4;
@@ -53,6 +56,35 @@ public class Shrine : MonoBehaviour
             {
                 lantern.CurrentValue.currentTime = lantern.CurrentValue.maxTime;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            other.GetComponent<PlayerMovement>().isInShrine = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && lit)
+        {
+            Debug.Log("cant kill");
+        }
+        else if(other.tag == "Player" && !lit)
+        {
+            other.GetComponent<PlayerMovement>().isInShrine = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Debug.Log("can kill");
+            other.GetComponent<PlayerMovement>().isInShrine = false;
         }
     }
 

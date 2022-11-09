@@ -18,6 +18,7 @@ public class AIEnemy : MonoBehaviour
     [SerializeField] private ShrineSet shrines;
     [SerializeField] private GameObjectSet monsters;
     [SerializeField] private GameObject particles;
+    [SerializeField] private PlayerMovement player;
 
     [Header("Stats")] [SerializeField] private float maxHp;
     [SerializeField] private Image healthBar;
@@ -111,8 +112,9 @@ public class AIEnemy : MonoBehaviour
                     pointsInLantern++;
             }
         }
+        //add inshrine check
 
-        if (pointsInLantern == 4)
+        if (pointsInLantern == 4 && !player.isInShrine)
         {
             hp -= Time.deltaTime;
             if (hp <= 0)

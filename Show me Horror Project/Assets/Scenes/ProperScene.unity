@@ -296,6 +296,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: waitTime.x
       value: 0
       objectReference: {fileID: 0}
@@ -1108,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753314541457116227, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -102.9
+      value: -103.1
       objectReference: {fileID: 0}
     - target: {fileID: 5753314541457116227, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1116,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753314541457116227, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -234.6
+      value: -232.9
       objectReference: {fileID: 0}
     - target: {fileID: 5753314541457116227, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1654,6 +1662,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
     - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
       propertyPath: lanternMultiplier
       value: 0.35
@@ -2882,6 +2898,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
     - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
       propertyPath: lanternMultiplier
       value: 0.35
       objectReference: {fileID: 0}
@@ -3996,6 +4020,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: waitTime.x
       value: 0
@@ -5157,6 +5189,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: waitTime.x
       value: 0
@@ -6633,6 +6673,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: waitTime.x
       value: 0
       objectReference: {fileID: 0}
@@ -7380,6 +7428,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: lanternMultiplier
       value: 0.2
       objectReference: {fileID: 0}
@@ -7703,6 +7759,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
     - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
       propertyPath: lanternMultiplier
       value: 0.35
@@ -8323,6 +8387,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5753314541457116226, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
   m_PrefabInstance: {fileID: 213026118}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192059725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5753314541457116237, guid: 69e16b7a2cce1aa4e9594939132fa92c, type: 3}
+  m_PrefabInstance: {fileID: 213026118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192059722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80878bc2bbc1b1a46b03404333ee8ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1194661392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9394,6 +9469,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
     - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
+    - target: {fileID: 5490982663072805456, guid: c9f1f5ba36365a94d9142644d9d51646, type: 3}
       propertyPath: lanternMultiplier
       value: 0.35
       objectReference: {fileID: 0}
@@ -9488,7 +9571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -102.9
+      value: -103.1
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9496,7 +9579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -246.91
+      value: -245.20999
       objectReference: {fileID: 0}
     - target: {fileID: 3297173714335618367, guid: 061bcb7a891cd784d938461bf61c9e1d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10539,6 +10622,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835212364}
     m_Modifications:
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1192059725}
+    - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
+      propertyPath: shrine
+      value: 
+      objectReference: {fileID: 1939291866}
     - target: {fileID: 5857804649788280890, guid: 9a8c9a82ab0eac3478e5317bda0e94ee, type: 3}
       propertyPath: waitTime.x
       value: 0
@@ -12915,9 +13006,37 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265362, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -65.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265362, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
       propertyPath: m_text
       value: Picked up lantern time upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_margin.w
+      value: -30.193512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_margin.z
+      value: -182.73813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685056905265364, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1113685057678247942, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
       propertyPath: m_Name
@@ -13006,6 +13125,42 @@ PrefabInstance:
     - target: {fileID: 1113685057678247946, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_text
+      value: Picked up lantern range upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_margin.w
+      value: -30.886688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_margin.z
+      value: -163.5597
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967377, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967598, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967599, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -65.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113685058247967599, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.600006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f64da82dda994b4eb5270afd5e5b491, type: 3}
@@ -13664,6 +13819,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5534092140359179546, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
   m_PrefabInstance: {fileID: 816743221}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1939291866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5534092140359179527, guid: 22fc534ba382b0244bdd44bd151fa673, type: 3}
+  m_PrefabInstance: {fileID: 816743221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2e697638756564d9766e7aa28d0d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1945228995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14857,7 +15023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381627, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -102.9
+      value: -103.1
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381627, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14865,7 +15031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381627, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -246.91
+      value: -245.20999
       objectReference: {fileID: 0}
     - target: {fileID: 4892652823136381627, guid: 66a55c2806135bf4999f55b3a7cbe56a, type: 3}
       propertyPath: m_LocalRotation.w
